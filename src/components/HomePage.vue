@@ -2,6 +2,7 @@
   <div id="app">
     <!------------------------------------------------------------------------------------------------->
     <!-- 1. Template Syntax -->
+    <h3 style="background: red">1. Template Syntax</h3>
 
     <!-- a) Text Interpolation -->
     <h1>{{ msg }}</h1>
@@ -19,6 +20,7 @@
 
     <!------------------------------------------------------------------------------------------------->
     <!-- 7. Event Handling [v-on:click] -->
+    <h3 style="background: red">7. Event Handling</h3>
     <!-- a) Inline Handlers -->
     <button v-on:click="incrementMe++">Increment Me: {{ incrementMe }}</button>
 
@@ -28,6 +30,7 @@
 
     <!------------------------------------------------------------------------------------------------->
     <!-- 6. List Rendering -->
+    <h3 style="background: red">6. List Rendering</h3>
     <!-- a) v-for with an Object -->
     <div v-for="value in myObject" :key="value">{{ value }}</div>
 
@@ -54,6 +57,7 @@
 
     <!------------------------------------------------------------------------------------------------->
     <!-- 8. Form Input Bindings -->
+    <h3 style="background: red">8. Form Input Binding</h3>
     <!-- a & b). v-model & v-model modifiers -->
     <input type="text" v-model.lazy="search" />
     <div v-for="name in nameSearch" :key="name">{{ name }}</div>
@@ -61,9 +65,10 @@
 
     <!------------------------------------------------------------------------------------------------->
     <!-- 10. Components -->
+    <h3 style="background: red">10. Components</h3>
     <!-- a, b & c). Props, Events & Slots -->
     <div :style="{ fontSize: postFontSize + 'em' }">
-      <TestComponent :tests="testValues" @enlarge-text="postFontSize += 0.1"
+      <TestComponent :tests="testValues" @enlargeText="postFontSize += 0.1"
         >Some Text</TestComponent
       >
     </div>
@@ -71,6 +76,7 @@
 
     <!------------------------------------------------------------------------------------------------->
     <!-- 11. Router -->
+    <h3 style="background: red">11. Router</h3>
     <router-link to="/about">About Page</router-link>
     <!------------------------------------------------------------------------------------------------->
   </div>
@@ -82,9 +88,9 @@ import TestComponent from "../components/TestComponent.vue";
 export default {
   name: "HomePage",
   components: { TestComponent },
+  emits: ["enlargeText"],
   setup() {
     // 3. Reactivity Fundamentals [ref(), <script setup>]
-
     const msg = ref("Hello World!");
     const postFontSize = ref(1);
     const paragraph = ref("<p>Hello</p>");
@@ -133,6 +139,8 @@ export default {
       nameSearch,
       testValues,
       postFontSize,
+      names,
+      search,
     };
   },
 };

@@ -4,7 +4,7 @@
     <p>{{ value.title }}</p>
     <p>{{ value.body }}</p>
     <p><slot /></p>
-    <button @click="$emit('enlarge-text')">Enlarge Text</button>
+    <button @click="$emit('enlargeText')">Enlarge Text</button>
   </div>
 </template>
 
